@@ -1,0 +1,22 @@
+{
+  "name": "officeworks-product-catalogue",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Officeworks AI-Native Engineer take-home assessment",
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "workspaces": [
+    "apps/client",
+    "apps/backend"
+  ],
+  "scripts": {
+    "dev": "concurrently -n API,WEB -c blue,green \"npm run dev --workspace=@catalogue/backend\" \"npm run dev --workspace=@catalogue/client\"",
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
